@@ -20,12 +20,7 @@
 //! Function Table
 typedef struct
 {
-	FUNC(CloseHandle);
-	FUNC(CreateFileW);
-	FUNC(MapViewOfFile);
-	FUNC(VirtualProtect);
-	FUNC(UnmapViewOfFile);
-	FUNC(CreateFileMappingA);
+
 } API;
 
 #include "hashes.h"
