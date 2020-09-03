@@ -11,6 +11,9 @@ def CreateTransformBlock( bufx64, bufx86 ):
         x64 = "transform-x64 {\n"
         x86 = "transform-x86 {\n"
 
+        x64 += "\t# Size: 0x%x\n" % ( int(len(bufx64) / int(2)) )
+        x86 += "\t# Size: 0x%x\n" % ( int(len(bufx86) / int(2)) )
+
         for asm in c64:
             s64 = [asm[i:i+2] for i in range(0, len(asm), 2)]
 
@@ -47,6 +50,7 @@ def EntryPoint(argv):
         hx86 = binascii.hexlify(sx86.read());
 
         px64, px86 = CreateTransformBlock( hx64, hx86 );
+
         print(px64);
         print(px86);
 
