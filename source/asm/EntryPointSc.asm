@@ -25,12 +25,14 @@ EntryPointSc:
 	%ifidn __OUTPUT_FORMAT__, win32
 		extern _EntryPoint
 		; EntryPoint( eax );
+		push 0x41414141
 		push eax
 		call _EntryPoint
 		leave;
 	%else
 		extern EntryPoint
 		; EntryPoint( rcx );
+		mov rdx, 0x41414141
 		call EntryPoint
 		mov rsp, rsi;
 		pop rsi;
