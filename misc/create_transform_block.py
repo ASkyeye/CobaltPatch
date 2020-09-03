@@ -21,7 +21,7 @@ def CreateTransformBlock( bufx64, bufx86 ):
             for tmp in s64:
                 b64 += "\\x%s" % str(tmp)[2:-1];
 
-            x64 += "\tprepend \"%s\"\n" % str(b64);
+            x64 += "\tprepend \"%s\";\n" % str(b64);
 
         for asm in c86:
             s86 = [asm[i:i+2] for i in range(0, len(asm), 2)]
@@ -30,7 +30,7 @@ def CreateTransformBlock( bufx64, bufx86 ):
             for tmp in s86:
                 b86 += "\\x%s" % str(tmp)[2:-1];
 
-            x86 += "\tprepend \"%s\"\n" % str(b86);
+            x86 += "\tprepend \"%s\";\n" % str(b86);
 
         x64 += "}";
         x86 += "}";
