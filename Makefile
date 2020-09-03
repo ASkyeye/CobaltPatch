@@ -22,6 +22,7 @@ LFLAGS := -Wl,-s,--no-seh,--enable-stdcall-fixup
 
 
 all: $(EXTX86) $(EXTX64) $(OUTX86) $(OUTX64) $(BINX86) $(BINX64)
+	python3 misc/create_transform_block.py $(BINX64) $(BINX86)
 
 clean:
 	rm -rf $(OUTX64) $(OUTX86)
